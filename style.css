@@ -1,0 +1,46 @@
+body{
+    width: 1080px;
+    margin: 0 auto !important;
+}
+.image{
+    width: 312px !important;
+
+}
+.imagedetales{
+    width: 524px !important;
+   
+
+}
+.ingradents {
+    margin: 0 80px;
+    list-style-type: square;
+}
+#food-categori{
+    background-color: bisque;
+    
+    
+}
+.food-div{
+    background-color: chartreuse;
+    border-radius: 10px;
+    margin: 5px;
+    width: 30.333333% !important;
+}
+#searchitem{
+    width: 400px;
+    
+}
+.searchbox{
+    margin: 66px 278px;
+}
+
+#food-detales{
+    background-color: cyan;
+    margin: 0 278px;
+}
+.ingradentsHead1{
+    margin: 0 54px;
+}
+.ingradentsHead2{
+    margin: 0 80px;
+}
