@@ -1,7 +1,11 @@
 const search = document.getElementById('srcbtn').addEventListener('click', function(){
     const search = document.getElementById('searchitem').value;
     if(search == " "){
-        alert("please Input a first letter of food");
+        // alert("please Input a first letter of food");
+        const noResult =`<h4 class ="no-result">NO SEARCH RESULT</h4>`
+        const foodCategories = document.getElementById('food-categori');
+        foodCategories.innerHTML = noResult;
+
     }
     if(search == ""){
             // const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${search}`
