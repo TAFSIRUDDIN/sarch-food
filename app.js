@@ -1,13 +1,13 @@
-const search = document.getElementById('srcbtn').addEventListener('click', function(){
+const searchBtn = document.getElementById('srcbtn').addEventListener('click', function(){
     const search = document.getElementById('searchitem').value;
-    if(search == " "){
+    if(search == " " ||!isNaN(search)){
         // alert("please Input a first letter of food");
-        const noResult =`<h4 class ="no-result">NO SEARCH RESULT</h4>`
+        const noResult =`<h4 class ="no-result">NO SEARCH RESULT ARE FOUND</h4>`
         const foodCategories = document.getElementById('food-categori');
         foodCategories.innerHTML = noResult;
 
     }
-    if(search == ""){
+    else if(search == ""){
             // const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${search}`
     const url = `https://www.themealdb.com/api/json/v1/1/random.php`
     fetch(url)
@@ -24,7 +24,7 @@ const search = document.getElementById('srcbtn').addEventListener('click', funct
 })
 
 const displayCategory = item =>{
-    console.log(item);
+    
     const foodCategories = document.getElementById('food-categori');
     const items = item.meals;
 
@@ -33,7 +33,7 @@ const displayCategory = item =>{
         foodDiv.className = 'col-4 food-div';
        const foodName = element.strMeal;
        const image = element.strMealThumb;
-       console.log(foodName);
+      
 
        const foodInfo = `
        <img onclick ="foodDetales('${element.idMeal}')" class="image" src="${image}">
@@ -47,12 +47,7 @@ const displayCategory = item =>{
     ;
     });
 
-    // for (let i = 0; i < item.meals.length; i++) {
-    //     const food = item.meals[i];
-    //     const foodName = food.strCategory;
-    //     console.log(foodName);
-        
-    // }
+
 }
 function foodDetales(foodId){
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`
@@ -79,9 +74,9 @@ const displayFoodinfo = itemdteals =>{
         <li class="ingradents">${food.strIngredient8}</li>
         <li class="ingradents">${food.strIngredient9}</li>
     `
-    // foodDetalesDiv.innerHTML = foodDetalesLIst;
     
-    console.log(name);
+    
+    
 }
 
 
