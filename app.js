@@ -1,27 +1,43 @@
-const searchBtn = document.getElementById('srcbtn').addEventListener('click', function(){
+
+
+const searchFood = () =>{
     const search = document.getElementById('searchitem').value;
-    if(search == " " ||!isNaN(search)){
+    if(search == ""){
+        // const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${search}`
+const url = `https://www.themealdb.com/api/json/v1/1/random.php`
+fetch(url)
+    .then( res => res.json())
+    .then(data => displayCategory(data));
+}
+
+    else if(search == " " ||!isNaN(search)){
         // alert("please Input a first letter of food");
         const noResult =`<h4 class ="no-result">NO SEARCH RESULT ARE FOUND</h4>`
         const foodCategories = document.getElementById('food-categori');
         foodCategories.innerHTML = noResult;
 
     }
-    else if(search == ""){
-            // const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${search}`
-    const url = `https://www.themealdb.com/api/json/v1/1/random.php`
-    fetch(url)
-        .then( res => res.json())
-        .then(data => displayCategory(data));
-    }
+    
     else{
         // const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${search}`
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${search}`
     fetch(url)
         .then( res => res.json())
-        .then(data => displayCategory(data));
+        .then(data => displayCategory(data))
+        .catch(error => displayError('Something Went Wrong!! Please input the first letter of food!'));
     }
-})
+}
+
+const displayError = errorText =>{
+    const displayErrorText =`
+        <h3 class ="error"> ${errorText}</h3>
+    `
+    document.getElementById('food-detales').innerHTML = displayErrorText;
+    
+}
+
+
+
 
 const displayCategory = item =>{
     

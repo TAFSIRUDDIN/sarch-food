@@ -48,3 +48,6 @@ body{
 .no-result{
     text-align: center;
 }
+.error{
+    color: red;
+}
